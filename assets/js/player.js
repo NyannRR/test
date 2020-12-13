@@ -367,20 +367,7 @@ window.addEventListener("message", function (e) {
 					document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
 				}
 				document.body.querySelector(".loading_container").style.display = "none";
-			});
-			//Mostra uma tela de erro caso a legenda pedida não exista.
-			jwplayer().on('error', function (e) {
-				if (e.code == 232011) {
-					jwplayer().load({
-						file: "https://i.imgur.com/OufoM33.mp4"
-					});
-					jwplayer().setControls(false);
-					jwplayer().setConfig({
-						repeat: true
-					});
-					jwplayer().play();
-				}
-			});
+				
 			//Fica salvando o tempo do video a cada 5 segundos.
 			const save_player_time_interval = setInterval(function () {
 				if (jwplayer().getState() == "playing") {
