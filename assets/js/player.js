@@ -367,7 +367,7 @@ window.addEventListener("message", function (e) {
 					document.getElementsByTagName("video")[0].currentTime = localStorage.getItem(video_id);
 				}
 				document.body.querySelector(".loading_container").style.display = "none";
-				
+			});
 			//Fica salvando o tempo do video a cada 5 segundos.
 			const save_player_time_interval = setInterval(function () {
 				if (jwplayer().getState() == "playing") {
