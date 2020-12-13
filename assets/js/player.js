@@ -204,9 +204,9 @@ window.addEventListener("message", function (e) {
 				
 				//Verifica se o ep é so pra usuarios premium
 				if(jwplayer().getPlaylist()[0].file.indexOf('blob:') !== -1) {
-					is_ep_premium_only = true;
-				}else{
 					is_ep_premium_only = false;
+				}else{
+					is_ep_premium_only = true;
 				}
 				
 				//console.log("is_ep_premium_only: " + is_ep_premium_only);
