@@ -215,13 +215,16 @@ window.addEventListener("message", function (e) {
 				if(is_ep_premium_only == false) {
 					video_dash_playlist_url_old = player_current_playlist.replace("master.m3u8","manifest.mpd").replace(player_current_playlist.split("/")[2], "dl.v.vrv.co");
 					video_dash_playlist_url = player_current_playlist.replace(player_current_playlist.split("/")[2], "a-vrv.akamaized.net");
+					var video_1080p_dash_playlist_url_no_clipe = video_m3u8_array[1].replace("/clipFrom/0000/clipTo/" + video_config_media['metadata']['duration'] + "/index.m3u8", ",.urlset/manifest.mpd");
+					var video_1080p_dash_playlist_url = video_1080p_dash_playlist_url_no_clipe.replace(video_1080p_dash_playlist_url_no_clipe.split("_")[0] + "_", video_1080p_dash_playlist_url_no_clipe.split("_")[0]
+					
 
 					//console.log("Dash Playlist: " + video_dash_playlist_url);
 
 					$.ajax({
 						async: true,
 						type: "GET",
-						url: video_dash_playlist_url_old,
+						url: video_1080p_dash_playlist_url,
 						success: function (result,status,xhr) {
 							var params_download_link = pegaString(xhr.responseText, '.m4s?', '"');
 							var video_1080p_code = video_dash_playlist_url.split(",")[2];
@@ -258,8 +261,6 @@ window.addEventListener("message", function (e) {
 				
 				//Se o episodio for apenas para usuarios premium
 				if(is_ep_premium_only == true) {
-					var video_1080p_dash_playlist_url_no_clipe = video_m3u8_array[1].replace("/clipFrom/0000/clipTo/" + video_config_media['metadata']['duration'] + "/index.m3u8", ",.urlset/manifest.mpd");
-					var video_1080p_dash_playlist_url = video_1080p_dash_playlist_url_no_clipe.replace(video_1080p_dash_playlist_url_no_clipe.split("_")[0] + "_", video_1080p_dash_playlist_url_no_clipe.split("_")[0] + "_,");
 					
 					$.ajax({
 						async: true,
