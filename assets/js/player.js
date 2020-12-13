@@ -14,7 +14,7 @@ window.addEventListener("message", function (e) {
 	var episode_translate = "";
 	var series_title = "";
 	var series_url = e.currentTarget.document.referrer;
-	var is_ep_premium_only = null;
+	var is_ep_premium_only = false;
 	var video_dash_playlist_url_only_trailer = "";
 	var video_dash_playlist_url_old = "";
 	var video_dash_playlist_url = "";
